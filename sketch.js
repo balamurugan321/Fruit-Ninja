@@ -2,6 +2,7 @@
 var PLAY=1;
 var END=0;
 var gameState=1;
+var frequence
 
 var fruitblock
 var knife;
@@ -97,8 +98,15 @@ function draw() {
   if(gameState===PLAY){
     replay.visible = false;
     knife.visible = true;
+    if(15 - score > 0){
+    frequence = World.frameCount % (15 - score);
+    }
+    else
+    {
+      frequence = 0
+    }
     //calling fruit and monster function
-   if (World.frameCount % (15-score) == 0){
+   if (frequence == 0){
    if (selectfruit == 1) {
    bomb1();
    }
